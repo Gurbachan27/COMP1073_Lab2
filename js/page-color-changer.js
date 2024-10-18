@@ -5,19 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const blueSlider = document.getElementById('blue');
     const body = document.body;
 
-   // Function to update the background color
-   function updateBackgroundColor() {
-    // Get the values for each slider (0-255)
-    const red = redSlider.value;
-    const green = greenSlider.value;
-    const blue = blueSlider.value;
+    // Function to update the background color
+    function updateBackgroundColor() {
+        // Get the values for each slider (0-255)
+        const red = redSlider.value;
+        const green = greenSlider.value;
+        const blue = blueSlider.value;
 
-    // RGB Color string
-    const rgbColor = rgb(${red}, ${green}, ${blue});
+        // RGB Color string
+        const rgbColor = `rgb(${red}, ${green}, ${blue})`;
 
-    // Update the background color
-    body.style.backgroundColor = rgbColor;
-}
+        // Update the background color
+        body.style.backgroundColor = rgbColor;
+    }
 
+    // Event listeners for each slider
+    redSlider.addEventListener('input', updateBackgroundColor);
+    greenSlider.addEventListener('input', updateBackgroundColor);
+    blueSlider.addEventListener('input', updateBackgroundColor);
 
+    // Set default background color
+    updateBackgroundColor();
 });
